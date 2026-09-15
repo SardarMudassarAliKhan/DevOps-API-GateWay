@@ -1,0 +1,55 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/service1/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "130.131.46.90",
+          "Port": 8081
+        }
+      ],
+      "SwaggerKey": "service8081"
+    },
+    {
+      "UpstreamPathTemplate": "/service2/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "130.131.46.90",
+          "Port": 8082
+        }
+      ],
+      "SwaggerKey": "service8082"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "service8081",
+      "Config": [
+        {
+          "Name": "Microservice 1 (Port 8081)",
+          "Version": "v1",
+          "Url": "http://130.131.46.90:8081/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "service8082",
+      "Config": [
+        {
+          "Name": "Microservice 2 (Port 8082)",
+          "Version": "v1",
+          "Url": "http://130.131.46.90:8082/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
+  }
+}
