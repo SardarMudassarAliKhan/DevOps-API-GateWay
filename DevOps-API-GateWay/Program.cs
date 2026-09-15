@@ -17,7 +17,7 @@ builder.Services.AddControllers();
 var app = builder.Build();
 
 // 4. Configure Swagger UI for Ocelot
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsStaging() || app.Environment.IsProduction())
 {
     app.UseSwaggerForOcelotUI(opt =>
     {
